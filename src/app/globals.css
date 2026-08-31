@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #F7F7F5;
+  --surface: #FFFFFF;
+  --surface-secondary: #F0F0ED;
+  --foreground: #111111;
+  --secondary: #555555;
+  --muted: #8A8A8A;
+  --border: #E7E7E4;
+  --dark-cta: #111111;
+  --dark-surface: #151515;
+  --accent-blue: #2563EB;
+}
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-brand-bg: #F7F7F5;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-surface-muted: #F0F0ED;
+  --color-brand-text: #111111;
+  --color-brand-secondary: #555555;
+  --color-brand-muted: #8A8A8A;
+  --color-brand-border: #E7E7E4;
+  --color-brand-dark: #111111;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F7F7F5;
+  color: #111111;
+}
+
+body {
+  background-color: #F7F7F5;
+  color: #111111;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle glow and waveform animations */
+@keyframes wave-pulse {
+  0%, 100% {
+    height: 8px;
+  }
+  50% {
+    height: 36px;
+  }
+}
+
+@keyframes soft-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-soft-float {
+  animation: soft-float 5s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s ease-in-out infinite;
+}
+
+/* Custom scrollbar for clean aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F7F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5D5D0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #AFAFA8;
+}
+
+/* Selection */
+::selection {
+  background-color: #111111;
+  color: #FFFFFF;
+}
