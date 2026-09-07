@@ -212,10 +212,11 @@ export const ContactSection: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-neutral-800 mb-1">
+                      <label htmlFor="contact-full-name" className="block text-xs font-semibold text-neutral-800 mb-1">
                         Full Name *
                       </label>
                       <input
+                        id="contact-full-name"
                         type="text"
                         required
                         placeholder="John Doe"
@@ -226,10 +227,11 @@ export const ContactSection: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-neutral-800 mb-1">
+                      <label htmlFor="contact-email" className="block text-xs font-semibold text-neutral-800 mb-1">
                         Business Email *
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
                         required
                         placeholder="john@company.com"
@@ -242,10 +244,11 @@ export const ContactSection: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-neutral-800 mb-1">
+                      <label htmlFor="contact-company" className="block text-xs font-semibold text-neutral-800 mb-1">
                         Company Name
                       </label>
                       <input
+                        id="contact-company"
                         type="text"
                         placeholder="Acme Enterprises"
                         value={company}
@@ -255,10 +258,11 @@ export const ContactSection: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-neutral-800 mb-1">
+                      <label htmlFor="contact-phone" className="block text-xs font-semibold text-neutral-800 mb-1">
                         Phone / WhatsApp
                       </label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         placeholder="+1 (555) 000-0000"
                         value={phone}
@@ -269,10 +273,11 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-neutral-800 mb-1">
+                    <label htmlFor="contact-service" className="block text-xs font-semibold text-neutral-800 mb-1">
                       Service Needed *
                     </label>
                     <select
+                      id="contact-service"
                       value={serviceNeeded}
                       onChange={(e) => setServiceNeeded(e.target.value)}
                       className="w-full px-4 py-3 text-sm bg-white border border-[#E7E7E4] rounded-xl focus:outline-none focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-900 text-neutral-900 font-medium"
@@ -287,10 +292,11 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-neutral-800 mb-1">
+                    <label htmlFor="contact-details" className="block text-xs font-semibold text-neutral-800 mb-1">
                       Project Details *
                     </label>
                     <textarea
+                      id="contact-details"
                       rows={4}
                       required
                       placeholder="Describe your goals, current systems, call volume, or expected deliverables..."

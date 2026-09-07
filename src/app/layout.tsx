@@ -36,6 +36,14 @@ export const metadata: Metadata = {
     "Business Automation",
     "Tonovox Technologies",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
+  },
   authors: [{ name: "Tonovox Technologies" }],
   creator: "Tonovox Technologies",
   publisher: "Tonovox Technologies",

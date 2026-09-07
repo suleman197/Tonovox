@@ -1,19 +1,39 @@
 import { NextResponse } from "next/server";
 
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { email } = body;
-
-    if (!email || !email.includes("@")) {
+    let body;
+    try {
+      body = await req.json();
+    } catch {
       return NextResponse.json(
-        { error: "Valid email is required." },
+        { error: "Invalid JSON payload in request." },
         { status: 400 }
       );
     }
 
+    const { email } = body || {};
+
+    if (!email || typeof email !== "string" || !EMAIL_REGEX.test(email.trim())) {
+      return NextResponse.json(
+        { error: "A valid email address is required (e.g. name@company.com)." },
+        { status: 400 }
+      );
+    }
+
+    if (email.trim().length > 150) {
+      return NextResponse.json(
+        { error: "Email address is too long." },
+        { status: 400 }
+      );
+    }
+
+    const cleanEmail = email.trim().toLowerCase().replace(/[<>]/g, "");
+
     console.log("[Tonovox Newsletter Subscribed]", {
-      email: email.trim().toLowerCase(),
+      email: cleanEmail,
       subscribedAt: new Date().toISOString(),
     });
 

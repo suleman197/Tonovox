@@ -68,7 +68,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
       });
 
       if (!res.ok) {
-        throw new Error("Unable to reserve your consultation at this moment. Please try again.");
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || "Unable to reserve your consultation at this moment. Please try again.");
       }
 
       setIsSuccess(true);
@@ -100,7 +101,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm transition-all duration-300">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm transition-all duration-300"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="consultation-modal-title"
+    >
       <div
         className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-[#E7E7E4] overflow-hidden transform transition-all"
         onClick={(e) => e.stopPropagation()}
@@ -115,8 +121,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-neutral-500 hover:text-neutral-900 rounded-full hover:bg-neutral-200 transition-colors"
-            aria-label="Close modal"
+            className="p-1.5 text-neutral-500 hover:text-neutral-900 rounded-full hover:bg-neutral-200 transition-colors cursor-pointer"
+            aria-label="Close consultation modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -148,7 +154,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <div className="pt-4">
                 <button
                   onClick={handleReset}
-                  className="px-6 py-3 bg-neutral-900 text-white text-sm font-medium rounded-full hover:bg-neutral-800 transition-colors shadow-sm"
+                  className="px-6 py-3 bg-neutral-900 text-white text-sm font-medium rounded-full hover:bg-neutral-800 transition-colors shadow-sm cursor-pointer"
                 >
                   Done
                 </button>
@@ -157,7 +163,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1">
-                <h3 className="text-xl font-bold text-neutral-900 tracking-tight">
+                <h3 id="consultation-modal-title" className="text-xl font-bold text-neutral-900 tracking-tight">
                   Book a Free Strategy Consultation
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-600">
@@ -166,17 +172,18 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </div>
 
               {error && (
-                <div className="p-3 text-xs bg-red-50 text-red-700 rounded-lg border border-red-200">
+                <div className="p-3 text-xs bg-red-50 text-red-700 rounded-lg border border-red-200" role="alert">
                   {error}
                 </div>
               )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                  <label htmlFor="modal-full-name" className="block text-xs font-semibold text-neutral-700 mb-1">
                     Full Name *
                   </label>
                   <input
+                    id="modal-full-name"
                     type="text"
                     required
                     placeholder="e.g. Alex Morgan"
@@ -186,10 +193,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                  <label htmlFor="modal-email" className="block text-xs font-semibold text-neutral-700 mb-1">
                     Business Email *
                   </label>
                   <input
+                    id="modal-email"
                     type="email"
                     required
                     placeholder="alex@company.com"
@@ -202,10 +210,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                  <label htmlFor="modal-company" className="block text-xs font-semibold text-neutral-700 mb-1">
                     Company / Organization
                   </label>
                   <input
+                    id="modal-company"
                     type="text"
                     placeholder="Acme Corp"
                     value={company}
@@ -214,10 +223,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                  <label htmlFor="modal-phone" className="block text-xs font-semibold text-neutral-700 mb-1">
                     Phone / WhatsApp (Optional)
                   </label>
                   <input
+                    id="modal-phone"
                     type="tel"
                     placeholder="+1 (555) 000-0000"
                     value={phone}
@@ -228,10 +238,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                <label htmlFor="modal-service" className="block text-xs font-semibold text-neutral-700 mb-1">
                   Primary Solution Needed *
                 </label>
                 <select
+                  id="modal-service"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
                   className="w-full px-3.5 py-2.5 text-sm bg-neutral-50 border border-[#E7E7E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-900"
@@ -247,11 +258,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1 flex items-center gap-1.5">
+                  <label htmlFor="modal-date" className="block text-xs font-semibold text-neutral-700 mb-1 flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-neutral-500" />
                     Preferred Date
                   </label>
                   <input
+                    id="modal-date"
                     type="date"
                     value={preferredDate}
                     onChange={(e) => setPreferredDate(e.target.value)}
@@ -259,11 +271,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1 flex items-center gap-1.5">
+                  <label htmlFor="modal-time" className="block text-xs font-semibold text-neutral-700 mb-1 flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-neutral-500" />
                     Time Window
                   </label>
                   <select
+                    id="modal-time"
                     value={preferredTime}
                     onChange={(e) => setPreferredTime(e.target.value)}
                     className="w-full px-3.5 py-2.5 text-sm bg-neutral-50 border border-[#E7E7E4] rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-900/10 focus:border-neutral-900"
@@ -277,10 +290,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                <label htmlFor="modal-notes" className="block text-xs font-semibold text-neutral-700 mb-1">
                   Brief Project Overview (Optional)
                 </label>
                 <textarea
+                  id="modal-notes"
                   rows={2}
                   placeholder="Tell us about your call volume, website goals, or existing software stack..."
                   value={projectNotes}
