@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tonovox Technologies
 
-## Getting Started
+![Tonovox Technologies](https://img.shields.io/badge/Tonovox-Technologies-black?style=for-the-badge)
 
-First, run the development server:
+> AI-powered automation solutions for modern businesses.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tonovox Technologies builds intelligent **AI Call Agents** and **AI Chatbots** that help businesses automate customer communication, qualify leads, book appointments, and provide 24/7 customer support.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 About Tonovox
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Businesses receive customer inquiries every day through calls, websites, and messaging platforms. Tonovox helps automate these conversations using AI.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Our solutions are designed to:
 
-## Learn More
+- 🤖 Automate customer conversations
+- 📞 Handle AI-powered phone calls
+- 💬 Provide intelligent chatbot support
+- 🎯 Qualify and capture leads
+- 📅 Schedule appointments
+- ⚡ Respond to customers 24/7
+- 📈 Improve customer engagement
+- 🔄 Reduce repetitive manual work
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Services
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### AI Call Agents
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Intelligent voice agents that can communicate with customers naturally, answer questions, collect information, qualify leads, and schedule appointments.
 
-## Deploy on Vercel
+### AI Chatbots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+AI-powered chatbots designed to provide instant customer support and answer frequently asked questions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Lead Qualification
+
+Automatically engage potential customers and identify high-quality leads before they reach your sales team.
+
+### Appointment Booking
+
+Automate appointment scheduling and reduce the need for manual coordination.
+
+### Business Automation
+
+Build customized AI workflows that automate repetitive business processes and improve operational efficiency.
+
+## 🌐 Website
+
+Visit the Tonovox Technologies website:
+
+**https://tonovox-one.vercel.app/**
+
+## 🛠️ Tech Stack
+
+The project is built using modern web technologies and tools, including:
+
+- HTML
+- CSS
+- JavaScript
+- Responsive Web Design
+- Git & GitHub
+- Vercel
+
+> The technology stack may evolve as the project develops.
+
+## 📁 Project Structure
+
+```text
+Tonovox/
+│
+├── assets/
+├── css/
+├── js/
+├── images/
+├── index.html
+├── README.md
+└── ...
